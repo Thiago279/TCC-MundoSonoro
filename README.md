@@ -1,3 +1,3 @@
-# TCC-AudioGame
+# TCC-Mundo Sonoro
 
-Repositório para TCC audio game
+Repositório para o audiogame Mundo Sonnoro (TCC).
