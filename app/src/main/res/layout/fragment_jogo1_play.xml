@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/azul_escuro"
+    tools:context=".Jogo1Play">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titulo_jg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Adivinhe o Som"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+        <!-- Botão 1 -->
+        <Button
+            android:id="@+id/opcao1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:text="Opção 1"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/opcao2"
+            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.2"
+            />
+
+        <!-- Botão 2 -->
+        <Button
+            android:id="@+id/opcao2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:text="Opção 2"
+            android:layout_marginTop="100dp"
+            app:layout_constraintStart_toEndOf="@id/opcao1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.2" />
+
+        <!-- Botão 3 -->
+        <Button
+            android:id="@+id/opcao3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:text="Opção 3"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/opcao4"
+            app:layout_constraintTop_toBottomOf="@id/opcao1"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.2" />
+
+        <!-- Botão 4 -->
+        <Button
+            android:id="@+id/opcao4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:text="Opção 4"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toEndOf="@id/opcao3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/opcao2"
+            app:layout_constraintWidth_percent="0.45"
+            app:layout_constraintHeight_percent="0.2" />
+
+        <Button
+            android:id="@+id/btn_repetir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:text="REPETIR O SOM"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/opcao4" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

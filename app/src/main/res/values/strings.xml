@@ -2,4 +2,15 @@
     <string name="app_name">Mundo Sonoro</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="desc_jg1">Descrição:\n
+Bem-vindo ao Adivinhe o Som!, um jogo divertido e educativo!
+Você ouvirá um som e precisará adivinhar de qual cenário ele faz parte. Será que é o barulho das ondas do mar em uma praia? Ou talvez o som de carros e pessoas falando em uma cidade? Escute com atenção e escolha a resposta correta!\n\n
+Às vezes, você precisará identificar um som específico dentro do cenário! Por exemplo: no cenário da fazenda, você consegue reconhecer o som de uma vaca mugindo? \n\n
+Ouça com atenção, escolha a opção certa e divirta-se explorando os sons do mundo ao seu redor!\n\n
+Instruções:\n\n
+• Toque na tela para ouvir o som novamente.\n
+• Deslize para explorar as opções e toque duas vezes para selecionar a resposta.\n
+• Se precisar de ajuda, ative as dicas no menu de acessibilidade.</string>
+
+
 </resources>
