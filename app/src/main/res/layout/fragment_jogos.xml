@@ -5,7 +5,7 @@
     android:id="@+id/fragment_jogos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/azul_escuro"
+    android:background="@color/verde_cinzento"
     tools:context=".FragmentJogos">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,10 +20,9 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linear_layout1"
@@ -40,35 +39,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"
-                android:text="Adivinhe o Som" />
+                android:text="Adivinhe o Som"
+                android:textColor="@color/verde_escuro" />
 
             <Button
                 android:id="@+id/btn_jg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
-                android:text="Jogo 2" />
+                android:text="Jogo 2"
+                android:textColor="@color/verde_escuro" />
 
             <Button
                 android:id="@+id/btn_jg3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
-                android:text="Jogo 3" />
+                android:text="Jogo 3"
+                android:textColor="@color/verde_escuro" />
 
             <Button
                 android:id="@+id/btn_jg4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
-                android:text="Jogo 4" />
+                android:text="Jogo 4"
+                android:textColor="@color/verde_escuro" />
 
             <Button
                 android:id="@+id/btn_jg5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
-                android:text="Jogo 5" />
+                android:text="Jogo 5"
+                android:textColor="@color/verde_escuro" />
 
 
         </LinearLayout>

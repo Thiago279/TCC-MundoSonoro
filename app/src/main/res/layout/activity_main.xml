@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:background="@color/azul_escuro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/verde_cinzento"
     tools:context=".MainActivity">
 
 
@@ -22,11 +22,15 @@
 
     <Button
         android:id="@+id/botao_jogar"
-        android:background="@drawable/custom_button"
         android:layout_width="390dp"
         android:layout_height="70dp"
         android:layout_marginTop="70dp"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/verde_claro"
+        android:drawableTint="@color/verde_claro"
         android:text="JOGAR"
+        android:textColor="@color/verde_escuro"
+        android:textColorLink="#B1D38F"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,22 +38,18 @@
 
     <Button
         android:id="@+id/botao_config"
-        android:background="@drawable/custom_button"
         android:layout_width="390dp"
         android:layout_height="70dp"
+        android:background="@drawable/custom_button"
         android:text="Configurações"
+        android:textColor="@color/verde_escuro"
+        android:textColorLink="#B1D38F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botao_jogar"
         app:layout_constraintVertical_bias="0.307" />
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

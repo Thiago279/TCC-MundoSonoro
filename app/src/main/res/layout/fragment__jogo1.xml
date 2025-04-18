@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_jogo1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/azul_escuro"
-    android:id="@+id/fragment_jogo1"
+    android:background="@color/verde_cinzento"
     tools:context=".FragmentJogo1">
 
 
@@ -17,25 +17,24 @@
             android:id="@+id/titulo_jg1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             android:text="Adivinhe o Som"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/desc_jg1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="@string/desc_jg1"
             android:textColor="@color/white"
-            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="30dp"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_jg1" />
 
         <Button
             android:id="@+id/btn_tutorial"
@@ -43,18 +42,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="TUTORIAL"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/verde_escuro"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/desc_jg1"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/desc_jg1" />
 
         <Button
             android:id="@+id/btn_play1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:drawableTint="@color/verde_claro"
             android:text="JOGAR"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/verde_escuro"
+            android:textColorLink="@color/verde_claro"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btn_tutorial" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
