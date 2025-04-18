@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Adivinhe o Som"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/verde_claro"
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="@string/desc_jg1"
-            android:textColor="@color/white"
+            android:textColor="@color/verde_claro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titulo_jg1" />
