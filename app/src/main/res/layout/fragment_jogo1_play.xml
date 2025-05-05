@@ -28,14 +28,14 @@
             android:id="@+id/opcao1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/custom_button"
             android:text="Opção 1"
             android:textColor="@color/verde_escuro"
             app:layout_constraintEnd_toStartOf="@id/opcao2"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
+            app:layout_constraintTop_toBottomOf="@id/btn_repetir"
             app:layout_constraintWidth_percent="0.45" />
 
         <!-- Botão 2 -->
@@ -43,14 +43,14 @@
             android:id="@+id/opcao2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="70dp"
             android:background="@drawable/custom_button"
             android:text="Opção 2"
             android:textColor="@color/verde_escuro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/opcao1"
-            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
+            app:layout_constraintTop_toBottomOf="@id/btn_repetir"
             app:layout_constraintWidth_percent="0.45" />
 
         <!-- Botão 3 -->
@@ -83,16 +83,17 @@
             app:layout_constraintTop_toBottomOf="@id/opcao2"
             app:layout_constraintWidth_percent="0.45" />
 
+        <!-- botao repetir o som -->
         <Button
             android:id="@+id/btn_repetir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="20dp"
             android:text="REPETIR O SOM"
             android:textColor="@color/verde_escuro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao4" />
+            app:layout_constraintTop_toBottomOf="@+id/titulo_jg1" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
