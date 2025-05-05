@@ -36,23 +36,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titulo_jg1" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_tutorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
+            android:backgroundTint="@color/verde_claro"
             android:text="TUTORIAL"
             android:textColor="@color/verde_escuro"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/desc_jg1" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_play1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:drawableTint="@color/verde_claro"
+            android:backgroundTint="@color/verde_claro"
             android:text="JOGAR"
             android:textColor="@color/verde_escuro"
             android:textColorLink="@color/verde_claro"

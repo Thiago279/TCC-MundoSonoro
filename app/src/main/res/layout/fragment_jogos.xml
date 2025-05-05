@@ -34,44 +34,49 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView2">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_jg1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="150dp"
                 android:text="Adivinhe o Som"
+                android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_escuro" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_jg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
                 android:text="Jogo 2"
+                android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_escuro" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_jg3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
                 android:text="Jogo 3"
+                android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_escuro" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_jg4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
                 android:text="Jogo 4"
+                android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_escuro" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_jg5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="70dp"
                 android:text="Jogo 5"
+                android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_escuro" />
 
 

@@ -20,30 +20,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mundo_sonoro" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/botao_jogar"
         android:layout_width="390dp"
         android:layout_height="70dp"
         android:layout_marginTop="70dp"
-        android:background="@drawable/custom_button"
         android:backgroundTint="@color/verde_claro"
-        android:drawableTint="@color/verde_claro"
         android:text="JOGAR"
         android:textColor="@color/verde_escuro"
-        android:textColorLink="#B1D38F"
+        app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo_mundo_sonoro" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/botao_config"
         android:layout_width="390dp"
         android:layout_height="70dp"
-        android:background="@drawable/custom_button"
+        android:backgroundTint="@color/verde_claro"
         android:text="Configurações"
         android:textColor="@color/verde_escuro"
-        android:textColorLink="#B1D38F"
+        app:cornerRadius="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
