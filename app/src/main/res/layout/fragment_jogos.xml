@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Selecione um Jogo"
+            android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
             android:textSize="30sp"
@@ -28,6 +29,7 @@
             android:id="@+id/linear_layout1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -36,43 +38,45 @@
 
             <Button
                 android:id="@+id/btn_jg1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="224dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="150dp"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
                 android:text="Adivinhe o Som"
-                android:textColor="@color/verde_escuro" />
+                android:textColor="@color/verde_cinzento" />
 
             <Button
                 android:id="@+id/btn_jg2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="224dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="70dp"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
                 android:text="Jogo 2"
-                android:textColor="@color/verde_escuro" />
+                android:textColor="@color/verde_cinzento" />
 
             <Button
                 android:id="@+id/btn_jg3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="224dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="70dp"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
                 android:text="Jogo 3"
-                android:textColor="@color/verde_escuro" />
+                android:textColor="@color/verde_cinzento" />
 
             <Button
                 android:id="@+id/btn_jg4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="224dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="70dp"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
                 android:text="Jogo 4"
-                android:textColor="@color/verde_escuro" />
+                android:textColor="@color/verde_cinzento" />
 
-            <Button
-                android:id="@+id/btn_jg5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:text="Jogo 5"
-                android:textColor="@color/verde_escuro" />
+
 
 
         </LinearLayout>

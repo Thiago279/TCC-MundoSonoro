@@ -9,13 +9,17 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
+
 
         <TextView
             android:id="@+id/titulo_jg1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:text="Adivinhe o Som"
+            android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
             android:textSize="30sp"
@@ -31,7 +35,9 @@
             android:layout_marginTop="70dp"
             android:background="@drawable/custom_button"
             android:text="Opção 1"
-            android:textColor="@color/verde_escuro"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/verde_cinzento"
             app:layout_constraintEnd_toStartOf="@id/opcao2"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +52,9 @@
             android:layout_marginTop="70dp"
             android:background="@drawable/custom_button"
             android:text="Opção 2"
-            android:textColor="@color/verde_escuro"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/verde_cinzento"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/opcao1"
@@ -61,7 +69,9 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/custom_button"
             android:text="Opção 3"
-            android:textColor="@color/verde_escuro"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/verde_cinzento"
             app:layout_constraintEnd_toStartOf="@id/opcao4"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +86,9 @@
             android:layout_marginTop="30dp"
             android:background="@drawable/custom_button"
             android:text="Opção 4"
-            android:textColor="@color/verde_escuro"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-black"
+            android:textColor="@color/verde_cinzento"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/opcao3"
@@ -86,12 +98,15 @@
         <!-- botao repetir o som -->
         <Button
             android:id="@+id/btn_repetir"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="REPETIR O SOM"
-            android:textColor="@color/verde_escuro"
+            android:layout_width="224dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="184dp"
+            android:fontFamily="sans-serif-black"
+            android:text="OUVIR O SOM"
+            android:textColor="@color/verde_cinzento"
+            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.55"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titulo_jg1" />
 
