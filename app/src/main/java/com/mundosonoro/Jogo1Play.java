@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.media.MediaPlayer;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import android.content.Context;
+import android.speech.tts.TextToSpeech;
+import java.util.Locale;
+
 
 public class Jogo1Play extends Fragment {
     private MediaPlayer mediaPlayer;
+    private TextToSpeech textToSpeech;
     private FragmentJogo1PlayBinding binding;
     private List<Cenario> cenarios;
     private Cenario cenarioAtual;
@@ -36,10 +42,16 @@ public class Jogo1Play extends Fragment {
         View view = binding.getRoot();
 
         inicializarCenarios();
-        sortearCenario();
 
-        //repetir som
-        binding.btnRepetir.setOnClickListener(v -> tocarSom(cenarioAtual.somResId));
+        //inicializa TextToSpeech
+        textToSpeech = new TextToSpeech(getContext(), status -> {
+            if (status != TextToSpeech.ERROR){
+                textToSpeech.setLanguage(new Locale("pt", "BR"));
+            }
+        });
+
+        //disparar som
+        binding.btnOuvirSom.setOnClickListener(v -> tocarSom(cenarioAtual.somResId));
 
         //Clique dos botões
         binding.opcao1.setOnClickListener(v -> checarResposta(0));
@@ -62,7 +74,7 @@ public class Jogo1Play extends Fragment {
 
     }
 
-    private void sortearCenario(){
+    private int sortearCenario(){
         Random random = new Random();
         int index = random.nextInt(cenarios.size());
         cenarioAtual = cenarios.get(index);
@@ -73,26 +85,43 @@ public class Jogo1Play extends Fragment {
         Collections.shuffle(opcoesEmbaralhadas);
 
         // Atualiza texto dos botões com opcoes embaralhadas
-        binding.opcao1.setText(cenarioAtual.opcoes[0]);
-        binding.opcao2.setText(cenarioAtual.opcoes[1]);
-        binding.opcao3.setText(cenarioAtual.opcoes[2]);
-        binding.opcao4.setText(cenarioAtual.opcoes[3]);
+        binding.opcao1.setText(opcoesEmbaralhadas.get(0));
+        binding.opcao2.setText(opcoesEmbaralhadas.get(1));
+        binding.opcao3.setText(opcoesEmbaralhadas.get(2));
+        binding.opcao4.setText(opcoesEmbaralhadas.get(3));
 
-        // toca o som
-        tocarSom(cenarioAtual.somResId);
+        return cenarioAtual.somResId;
+
     }
 
     private void tocarSom(int somResource){
-        if (mediaPlayer != null){
-            mediaPlayer.release(); //libera qualquer recurso de audio anterior
-        }
+        pararSomAtual();
 
         mediaPlayer = MediaPlayer.create(getContext(), somResource);
-        mediaPlayer.start();
 
-        mediaPlayer.setOnCompletionListener(mp -> {
-            mp.release(); //libera recursos quando o som terminar
-        });
+        if (mediaPlayer != null){
+            mediaPlayer.start();
+
+            //libera recursos qnd o som terminar
+            mediaPlayer.setOnCompletionListener(mp -> {
+                mp.release();
+                mediaPlayer = null;
+            });
+        }
+    }
+
+    private void pararSomAtual(){
+        if (mediaPlayer != null){
+            try{
+                if (mediaPlayer.isPlaying()){
+                    mediaPlayer.stop();
+                }
+            } catch (IllegalStateException e){
+                e.printStackTrace(); //debug
+            }
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
     private void checarResposta(int indiceEscolhido){
@@ -114,21 +143,35 @@ public class Jogo1Play extends Fragment {
                 break;
         }
 
+        //para o som do cenario imediatamente
+        pararSomAtual();
+
         if (respostaEscolhida.equalsIgnoreCase(cenarioAtual.respostaCorreta)){
-            Toast.makeText(getContext(), "Acertou", Toast.LENGTH_SHORT).show();
+            tocarFeedback(R.raw.correct_sfx);
+            textToSpeech.speak("Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
+            Toast.makeText(getContext(), "Acertou", Toast.LENGTH_SHORT).show(); //tirar dps
         }else{
-            Toast.makeText(getContext(), "Errou", Toast.LENGTH_SHORT).show();
+            tocarFeedback(R.raw.wrong_sfx);
+            Toast.makeText(getContext(), "Errou", Toast.LENGTH_SHORT).show(); //tirar dps
         }
 
         sortearCenario();
     }
 
+    private void tocarFeedback(int resourceId){
+        pararSomAtual();
+        mediaPlayer = MediaPlayer.create(getContext(), resourceId);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(MediaPlayer::release);
+    }
+
     @Override
     public void onDestroy(){
         super.onDestroy();
-        if(mediaPlayer != null){
-            mediaPlayer.release(); //libera o player ao sair do fragment
-            mediaPlayer = null;
+        pararSomAtual();
+        if(textToSpeech != null){
+            textToSpeech.stop();
+            textToSpeech.shutdown();
         }
     }
 

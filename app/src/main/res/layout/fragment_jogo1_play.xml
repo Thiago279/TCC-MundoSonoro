@@ -27,6 +27,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/subminigame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="Sub-minigame"
+            android:fontFamily="sans-serif-black"
+            android:textAlignment="center"
+            android:textColor="@color/verde_claro"
+            android:textSize="30sp"
+            android:layout_marginTop="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
+
+            />
+
+
+
+        <!-- botao ouvir som -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_ouvir_som"
+            android:backgroundTint="@color/verde_claro"
+            android:layout_width="224dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="sans-serif-black"
+            android:text="OUVIR O SOM"
+            android:textColor="@color/verde_cinzento"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subminigame" />
+
         <!-- Botão 1 -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/opcao1"
@@ -43,7 +77,7 @@
             app:layout_constraintEnd_toStartOf="@id/opcao2"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_repetir"
+            app:layout_constraintTop_toBottomOf="@id/btn_ouvir_som"
             app:layout_constraintWidth_percent="0.45" />
 
         <!-- Botão 2 -->
@@ -62,7 +96,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toEndOf="@id/opcao1"
-            app:layout_constraintTop_toBottomOf="@id/btn_repetir"
+            app:layout_constraintTop_toBottomOf="@id/btn_ouvir_som"
             app:layout_constraintWidth_percent="0.45" />
 
         <!-- Botão 3 -->
@@ -100,23 +134,6 @@
             app:layout_constraintStart_toEndOf="@id/opcao3"
             app:layout_constraintTop_toBottomOf="@id/opcao2"
             app:layout_constraintWidth_percent="0.45" />
-
-        <!-- botao repetir o som -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_repetir"
-            android:backgroundTint="@color/verde_claro"
-            android:layout_width="224dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="184dp"
-            android:fontFamily="sans-serif-black"
-            android:text="OUVIR O SOM"
-            android:textColor="@color/verde_cinzento"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.55"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titulo_jg1" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

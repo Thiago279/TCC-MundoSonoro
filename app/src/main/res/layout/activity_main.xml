@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mundo_sonoro" />
+        app:srcCompat="@drawable/mundo_sonoro4" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/botao_jogar"
