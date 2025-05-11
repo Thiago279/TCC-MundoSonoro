@@ -42,11 +42,18 @@ public class Jogo1Play extends Fragment {
         View view = binding.getRoot();
 
         inicializarCenarios();
+        sortearCenario();
 
         //inicializa TextToSpeech
         textToSpeech = new TextToSpeech(getContext(), status -> {
-            if (status != TextToSpeech.ERROR){
-                textToSpeech.setLanguage(new Locale("pt", "BR"));
+            if (status == TextToSpeech.SUCCESS){
+                int result = textToSpeech.setLanguage(new Locale("pt", "BR"));
+
+                //Fala o subminigame no primeiro round
+                if (result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED){
+                    String nomeSubminigame = binding.subminigame.getText().toString();
+                    textToSpeech.speak(nomeSubminigame, TextToSpeech.QUEUE_FLUSH, null, null);
+                }
             }
         });
 
@@ -62,15 +69,17 @@ public class Jogo1Play extends Fragment {
         return view;
     }
 
-
+    //tipo 0 -> adivinhar cenario com base no som
+    //tipo 1 -> adivinhar som com base no cenario
     private void inicializarCenarios(){
         cenarios = new ArrayList<>();
 
-        cenarios.add(new Cenario("Cidade", new String[]{"Floresta", "Cidade", "Fazenda", "Aeroporto"}, R.raw.som_cidade));
-        cenarios.add(new Cenario("Aeroporto", new String[]{"Floresta", "Cidade", "Aeroporto", "Rodoviária"},R.raw.som_aviao));
-        cenarios.add(new Cenario("Escola", new String[]{"Supermercado", "Escola", "Hospital", "Biblioteca"}, R.raw.som_criancas));
-        cenarios.add(new Cenario("Estádio", new String[]{"Teatro", "Parque", "Estádio", "Supermercado"},R.raw.som_estadio));
-        cenarios.add(new Cenario("Fazenda", new String[]{"Supermercado", "Parque", "Fazenda", "Cidade"}, R.raw.som_fazenda));
+        cenarios.add(new Cenario("Cidade", new String[]{"Floresta", "Cidade", "Fazenda", "Aeroporto"}, R.raw.som_cidade, 0));
+        cenarios.add(new Cenario("Aeroporto", new String[]{"Floresta", "Cidade", "Aeroporto", "Rodoviária"},R.raw.som_aviao, 0));
+        cenarios.add(new Cenario("Escola", new String[]{"Supermercado", "Escola", "Hospital", "Biblioteca"}, R.raw.som_criancas, 0));
+        cenarios.add(new Cenario("Estádio", new String[]{"Teatro", "Parque", "Estádio", "Supermercado"},R.raw.som_estadio, 0));
+        cenarios.add(new Cenario("Fazenda", new String[]{"Supermercado", "Parque", "Fazenda", "Cidade"}, R.raw.som_fazenda, 0));
+        cenarios.add(new Cenario("Leão Rugindo", new String[]{"Elefante trombeteando", "Leão Rugindo", "Lobo uivando", "Cavalo relinchando"}, R.raw.lion, 1));
 
     }
 
@@ -90,8 +99,14 @@ public class Jogo1Play extends Fragment {
         binding.opcao3.setText(opcoesEmbaralhadas.get(2));
         binding.opcao4.setText(opcoesEmbaralhadas.get(3));
 
-        return cenarioAtual.somResId;
+        //Atualiza o texto do subminigame com base no tipo
+        if (cenarioAtual.tipo == 0){
+            binding.subminigame.setText("Que lugar é esse?");
+        } else if(cenarioAtual.tipo == 1){
+            binding.subminigame.setText("Que som é esse?");
+        }
 
+        return cenarioAtual.somResId;
     }
 
     private void tocarSom(int somResource){
@@ -149,13 +164,16 @@ public class Jogo1Play extends Fragment {
         if (respostaEscolhida.equalsIgnoreCase(cenarioAtual.respostaCorreta)){
             tocarFeedback(R.raw.correct_sfx);
             textToSpeech.speak("Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
-            Toast.makeText(getContext(), "Acertou", Toast.LENGTH_SHORT).show(); //tirar dps
         }else{
             tocarFeedback(R.raw.wrong_sfx);
-            Toast.makeText(getContext(), "Errou", Toast.LENGTH_SHORT).show(); //tirar dps
         }
 
         sortearCenario();
+        //fala o subminigame dps de 2,3 segundos
+        new android.os.Handler().postDelayed(() -> {
+            textToSpeech.speak(binding.subminigame.getText(), TextToSpeech.QUEUE_FLUSH, null, null);
+        }, 2300);
+
     }
 
     private void tocarFeedback(int resourceId){
