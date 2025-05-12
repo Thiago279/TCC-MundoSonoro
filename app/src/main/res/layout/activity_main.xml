@@ -11,34 +11,37 @@
 
     <ImageView
         android:id="@+id/logo_mundo_sonoro"
-        android:layout_width="283dp"
-        android:layout_height="268dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="24dp"
         android:scaleType="fitCenter"
+        android:contentDescription="Logo do Mundo Sonoro"
+        android:importantForAccessibility="yes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/mundo_sonoro1" />
 
     <TextView
-        android:id="@+id/titulo_jg1"
+        android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
         android:fontFamily="sans-serif-black"
         android:text="MUNDO\nSONORO"
         android:textAlignment="center"
         android:textColor="@color/verde_claro"
         android:textSize="60sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo_mundo_sonoro" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/botao_jogar"
-        android:layout_width="224dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="228dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="64dp"
         android:backgroundTint="@color/verde_claro"
         android:drawableTint="@color/verde_claro"
         android:fontFamily="sans-serif-black"
@@ -46,29 +49,33 @@
         android:textColor="@color/verde_cinzento"
         android:textColorLink="#B1D38F"
         android:textSize="20sp"
+        android:contentDescription="Botão para iniciar o jogo"
         app:cornerRadius="12dp"
+        android:minHeight="48dp"
+        app:layout_constraintWidth_max="360dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_mundo_sonoro" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/botao_config"
-        android:layout_width="224dp"
-        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/verde_claro"
-        app:cornerRadius="12dp"
+        android:contentDescription="Botão para acessar as configurações do jogo"
+        android:fontFamily="sans-serif-black"
+        android:minHeight="48dp"
         android:text="CONFIGURAÇÕES"
         android:textColor="@color/verde_cinzento"
         android:textColorLink="#B1D38F"
         android:textSize="20sp"
-        android:fontFamily="sans-serif-black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botao_jogar"
-        app:layout_constraintVertical_bias="0.37" />
+        app:layout_constraintWidth_max="360dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
