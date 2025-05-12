@@ -4,24 +4,17 @@ import android.os.Bundle;
 import android.media.MediaPlayer;
 import androidx.fragment.app.Fragment;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.mundosonoro.databinding.ActivityMainBinding;
-import com.mundosonoro.databinding.FragmentJogo1Binding;
 import com.mundosonoro.databinding.FragmentJogo1PlayBinding;
-import com.mundosonoro.databinding.FragmentJogosBinding;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import android.content.Context;
 import android.speech.tts.TextToSpeech;
 import java.util.Locale;
 
@@ -32,6 +25,8 @@ public class Jogo1Play extends Fragment {
     private FragmentJogo1PlayBinding binding;
     private List<Cenario> cenarios;
     private Cenario cenarioAtual;
+    private int pontos = 0;
+
 
 
     @Override
@@ -79,7 +74,10 @@ public class Jogo1Play extends Fragment {
         cenarios.add(new Cenario("Escola", new String[]{"Supermercado", "Escola", "Hospital", "Biblioteca"}, R.raw.som_criancas, 0));
         cenarios.add(new Cenario("Estádio", new String[]{"Teatro", "Parque", "Estádio", "Supermercado"},R.raw.som_estadio, 0));
         cenarios.add(new Cenario("Fazenda", new String[]{"Supermercado", "Parque", "Fazenda", "Cidade"}, R.raw.som_fazenda, 0));
-        cenarios.add(new Cenario("Leão Rugindo", new String[]{"Elefante trombeteando", "Leão Rugindo", "Lobo uivando", "Cavalo relinchando"}, R.raw.lion, 1));
+        cenarios.add(new Cenario("Leão Rugindo", new String[]{"Elefante trombeteando", "Leão Rugindo", "Lobo uivando", "Cavalo relinchando"}, R.raw.som_leao, 1));
+        cenarios.add(new Cenario("Golfinho fazendo barulho", new String[]{"Golfinho fazendo barulho", "Ondas do mar", "Baleia cantando", "Barco navegando"}, R.raw.som_golfinho, 1));
+        cenarios.add(new Cenario("Grilo cantando", new String[]{"Grilo cantando", "Galo cantando", "Passarinhos piando", "Coruja fazendo barulho"}, R.raw.som_grilo, 1));
+        cenarios.add(new Cenario("Música do carrossel", new String[]{"Montanha-russa descendo", "Música do carrossel", "Pipoca estourando", "Crianças no pula-pula"}, R.raw.som_carrossel, 1));
 
     }
 
@@ -162,6 +160,8 @@ public class Jogo1Play extends Fragment {
         pararSomAtual();
 
         if (respostaEscolhida.equalsIgnoreCase(cenarioAtual.respostaCorreta)){
+            pontos += 10;
+            binding.pontos.setText("Pontos: " + pontos);
             tocarFeedback(R.raw.correct_sfx);
             textToSpeech.speak("Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
         }else{

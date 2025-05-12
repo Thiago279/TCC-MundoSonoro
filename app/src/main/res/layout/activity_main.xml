@@ -18,13 +18,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mundo_sonoro4" />
+        app:srcCompat="@drawable/mundo_sonoro1" />
+
+    <TextView
+        android:id="@+id/titulo_jg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="MUNDO\nSONORO"
+        android:textAlignment="center"
+        android:textColor="@color/verde_claro"
+        android:textSize="60sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo_mundo_sonoro" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/botao_jogar"
         android:layout_width="224dp"
         android:layout_height="70dp"
-        app:cornerRadius="12dp"
         android:layout_marginTop="228dp"
         android:backgroundTint="@color/verde_claro"
         android:drawableTint="@color/verde_claro"
@@ -33,6 +46,7 @@
         android:textColor="@color/verde_cinzento"
         android:textColorLink="#B1D38F"
         android:textSize="20sp"
+        app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
