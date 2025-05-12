@@ -77,7 +77,7 @@ public class Jogo1Play extends Fragment {
         cenarios.add(new Cenario("Leão Rugindo", new String[]{"Elefante trombeteando", "Leão Rugindo", "Lobo uivando", "Cavalo relinchando"}, R.raw.som_leao, 1));
         cenarios.add(new Cenario("Golfinho fazendo barulho", new String[]{"Golfinho fazendo barulho", "Ondas do mar", "Baleia cantando", "Barco navegando"}, R.raw.som_golfinho, 1));
         cenarios.add(new Cenario("Grilo cantando", new String[]{"Grilo cantando", "Galo cantando", "Passarinhos piando", "Coruja fazendo barulho"}, R.raw.som_grilo, 1));
-        cenarios.add(new Cenario("Música do carrossel", new String[]{"Montanha-russa descendo", "Música do carrossel", "Pipoca estourando", "Crianças no pula-pula"}, R.raw.som_carrossel, 1));
+        cenarios.add(new Cenario("Música do carrossel", new String[]{"Montanha russa descendo", "Música do carrossel", "Pipoca estourando", "Crianças no pula-pula"}, R.raw.som_carrossel, 1));
 
     }
 
@@ -92,10 +92,10 @@ public class Jogo1Play extends Fragment {
         Collections.shuffle(opcoesEmbaralhadas);
 
         // Atualiza texto dos botões com opcoes embaralhadas
-        binding.opcao1.setText(opcoesEmbaralhadas.get(0));
-        binding.opcao2.setText(opcoesEmbaralhadas.get(1));
-        binding.opcao3.setText(opcoesEmbaralhadas.get(2));
-        binding.opcao4.setText(opcoesEmbaralhadas.get(3));
+        binding.opcao1.setText(opcoesEmbaralhadas.get(0).toUpperCase());
+        binding.opcao2.setText(opcoesEmbaralhadas.get(1).toUpperCase());
+        binding.opcao3.setText(opcoesEmbaralhadas.get(2).toUpperCase());
+        binding.opcao4.setText(opcoesEmbaralhadas.get(3).toUpperCase());
 
         //Atualiza o texto do subminigame com base no tipo
         if (cenarioAtual.tipo == 0){
