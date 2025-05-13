@@ -45,7 +45,7 @@
                 android:layout_marginTop="150dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
-                android:text="Adivinhe o Som"
+                android:text="ADIVINHE O SOM"
                 android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp" />
@@ -57,7 +57,7 @@
                 android:layout_marginTop="32dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
-                android:text="Jogo 2"
+                android:text="JOGO 2"
                 android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp"/>
@@ -69,7 +69,7 @@
                 android:layout_marginTop="32dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
-                android:text="Jogo 3"
+                android:text="JOGO 3"
                 android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp"/>
@@ -81,7 +81,7 @@
                 android:layout_marginTop="32dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
-                android:text="Jogo 4"
+                android:text="JOGO 4"
                 android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp"/>
