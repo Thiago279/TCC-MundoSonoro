@@ -36,7 +36,7 @@ public class FragmentJogo1 extends Fragment {
             public void onClick(View v) {
                 Jogo1Play jogo1play = new Jogo1Play();
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_jogo1, jogo1play)
+                        .replace(R.id.fragment_container, jogo1play)
                         .addToBackStack(null)
                         .commit();
             }
