@@ -42,7 +42,7 @@
                 android:id="@+id/btn_jg1"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_marginTop="150dp"
+                android:layout_marginTop="200dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
                 android:text="ADIVINHE O SOM"

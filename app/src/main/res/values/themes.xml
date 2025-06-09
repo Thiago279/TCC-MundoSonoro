@@ -4,7 +4,11 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/verde_claro</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
 
-    <style name="Theme.MundoSonoro" parent="Base.Theme.MundoSonoro" />
+    <style name="Theme.MundoSonoro" parent="Base.Theme.MundoSonoro">
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
 </resources>
