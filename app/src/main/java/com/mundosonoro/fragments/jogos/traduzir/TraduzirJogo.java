@@ -3,6 +3,8 @@ package com.mundosonoro.fragments.jogos.traduzir;
 import android.os.Bundle;
 import android.media.MediaPlayer;
 import androidx.fragment.app.Fragment;
+
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -171,7 +173,7 @@ public class TraduzirJogo extends Fragment {
 
     private void falarPergunta() {
         if (textToSpeech != null) {
-            String pergunta = "COMO SE FALA " + cenarioAtual.palavraOriginal + " EM INGLÊS?";
+            String pergunta = "Como se fala " + cenarioAtual.palavraOriginal + " em inglês?";
             textToSpeech.speak(pergunta, TextToSpeech.QUEUE_FLUSH, null, null);
         }
     }
@@ -198,13 +200,21 @@ public class TraduzirJogo extends Fragment {
         if (respostaEscolhida.equalsIgnoreCase(cenarioAtual.respostaCorreta)) {
             pontos += 10;
             binding.pontos.setText("Pontos: " + pontos);
+
             tocarFeedback(R.raw.correct_sfx);
-            textToSpeech.speak("Correto! Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
+
+            new Handler().postDelayed(() -> {
+                textToSpeech.speak("Correto! Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
+            }, 700);
+
         } else {
             tocarFeedback(R.raw.wrong_sfx);
-            String feedback = "Incorreto";
-            textToSpeech.speak(feedback, TextToSpeech.QUEUE_FLUSH, null, null);
+
+            new Handler().postDelayed(() -> {
+                textToSpeech.speak("Incorreto", TextToSpeech.QUEUE_FLUSH, null, null);
+            }, 700);
         }
+
 
         rodadaAtual++;
 
@@ -233,10 +243,10 @@ public class TraduzirJogo extends Fragment {
             }
             textToSpeech.speak(resultado, TextToSpeech.QUEUE_FLUSH, null, null);
 
-            // Volta para a tela inicial após 5 segundos
+            // Volta para a tela inicial após 8 segundos
             new android.os.Handler().postDelayed(() -> {
                 ((MainActivity) getActivity()).voltarParaMenu();
-            }, 5000);
+            }, 8000);
 
         }, 2000);
     }
@@ -244,13 +254,20 @@ public class TraduzirJogo extends Fragment {
     private void tocarFeedback(int resourceId) {
         if (mediaPlayer != null) {
             mediaPlayer.release();
+            mediaPlayer = null;
         }
+
         mediaPlayer = MediaPlayer.create(getContext(), resourceId);
         if (mediaPlayer != null) {
+            mediaPlayer.setVolume(0.5f, 0.5f); // controla volume (E/D)
             mediaPlayer.start();
-            mediaPlayer.setOnCompletionListener(MediaPlayer::release);
+            mediaPlayer.setOnCompletionListener(mp -> {
+                mp.release();
+                mediaPlayer = null;
+            });
         }
     }
+
 
     @Override
     public void onDestroy() {
