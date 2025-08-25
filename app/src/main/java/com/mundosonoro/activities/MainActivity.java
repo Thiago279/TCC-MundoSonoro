@@ -1,21 +1,19 @@
-package com.mundosonoro;
+package com.mundosonoro.activities;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
+import com.mundosonoro.fragments.menu.HomeFragment;
+import com.mundosonoro.fragments.jogos.traduzir.TraduzirJogo; // Adicionado import
+import com.mundosonoro.R;
 import com.mundosonoro.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,9 +42,28 @@ public class MainActivity extends AppCompatActivity {
         // Carrega o fragmento inicial se ainda não foi carregado
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new FragmentMenuPrincipal())
+                    .replace(R.id.fragment_container, new HomeFragment())
                     .commit();
         }
     }
 
+    // Método para navegar para o jogo de tradução - Adicionado
+    public void navegarParaTraduzirJogo() {
+        TraduzirJogo traduzirJogo = new TraduzirJogo();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, traduzirJogo)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    // Método para voltar ao menu principal - Adicionado
+    public void voltarParaMenu() {
+        HomeFragment homeFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, homeFragment)
+                .commit();
+
+        // Limpa a pilha de fragments
+        getSupportFragmentManager().popBackStack(null, getSupportFragmentManager().POP_BACK_STACK_INCLUSIVE);
+    }
 }

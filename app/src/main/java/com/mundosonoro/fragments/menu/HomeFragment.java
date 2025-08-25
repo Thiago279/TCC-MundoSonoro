@@ -1,4 +1,4 @@
-package com.mundosonoro;
+package com.mundosonoro.fragments.menu;
 
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -9,16 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mundosonoro.databinding.FragmentMenuPrincipalBinding;
+import com.mundosonoro.R;
+import com.mundosonoro.databinding.FragmentHomeBinding;
 
-public class FragmentMenuPrincipal extends Fragment {
+public class HomeFragment extends Fragment {
 
-    private FragmentMenuPrincipalBinding binding;
+    private FragmentHomeBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentMenuPrincipalBinding.inflate(inflater, container, false);
+        binding = FragmentHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -28,7 +29,7 @@ public class FragmentMenuPrincipal extends Fragment {
 
         // Ação do botão "JOGAR"
         binding.botaoJogar.setOnClickListener(v -> {
-            FragmentJogos jogosFragment = new FragmentJogos();
+            SeletorJogosFragment jogosFragment = new SeletorJogosFragment();
             getParentFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, jogosFragment)
                     .addToBackStack(null)

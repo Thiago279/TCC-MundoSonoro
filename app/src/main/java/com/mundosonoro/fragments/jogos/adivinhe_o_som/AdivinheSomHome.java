@@ -1,4 +1,4 @@
-package com.mundosonoro;
+package com.mundosonoro.fragments.jogos.adivinhe_o_som;
 
 import android.os.Bundle;
 
@@ -11,19 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.mundosonoro.databinding.FragmentJogo1Binding;
-import com.mundosonoro.databinding.FragmentJogosBinding;
+import com.mundosonoro.R;
+import com.mundosonoro.databinding.FragmentAdivinheSomHomeBinding;
+import com.mundosonoro.databinding.FragmentAdivinheSomJogoBinding;
 
+public class AdivinheSomHome extends Fragment {
 
-public class FragmentJogo1 extends Fragment {
-
-    private FragmentJogo1Binding binding;
+    private FragmentAdivinheSomHomeBinding binding;
     private Button btn_play;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentJogo1Binding.inflate(inflater, container, false);
+        binding = FragmentAdivinheSomHomeBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
@@ -34,11 +34,19 @@ public class FragmentJogo1 extends Fragment {
         binding.btnPlay1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Jogo1Play jogo1play = new Jogo1Play();
+                AdivinheSomJogo adivinheSomJogo = new AdivinheSomJogo();
                 getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, jogo1play)
+                        .replace(R.id.fragment_container, adivinheSomJogo)
                         .addToBackStack(null)
                         .commit();
+            }
+        });
+
+        binding.btnTutorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO: Implementar tutorial
+                // Pode mostrar instruções ou navegar para uma tela de tutorial
             }
         });
     }

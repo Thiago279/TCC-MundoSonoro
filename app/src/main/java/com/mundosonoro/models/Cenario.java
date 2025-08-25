@@ -1,4 +1,4 @@
-package com.mundosonoro;
+package com.mundosonoro.models;
 
 public class Cenario {
     public String[] opcoes;

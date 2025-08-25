@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verde_cinzento"
-    tools:context=".Jogo1Play">
+    tools:context=".fragments.jogos.adivinhe_o_som.AdivinheSomJogo">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,10 +34,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:text="Sub-minigame"
-            android:fontFamily="sans-serif-black"
+            android:fontFamily="sans-serif"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,10 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:text="Pontos: 0"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

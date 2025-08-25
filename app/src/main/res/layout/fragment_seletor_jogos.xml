@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verde_cinzento"
-    tools:context=".FragmentJogos">
+    tools:context=".fragments.menu.SeletorJogosFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
                 android:layout_marginTop="32dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
-                android:text="JOGO 2"
+                android:text="TRADUZIR"
                 android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp"/>

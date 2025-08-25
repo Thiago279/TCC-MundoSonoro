@@ -1,4 +1,4 @@
-package com.mundosonoro;
+package com.mundosonoro.fragments.jogos.adivinhe_o_som;
 
 import android.os.Bundle;
 import android.media.MediaPlayer;
@@ -8,7 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mundosonoro.databinding.FragmentJogo1PlayBinding;
+import com.mundosonoro.models.Cenario;
+import com.mundosonoro.R;
+import com.mundosonoro.databinding.FragmentAdivinheSomJogoBinding; // Corrigido: nome do binding
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,22 +20,19 @@ import java.util.Random;
 import android.speech.tts.TextToSpeech;
 import java.util.Locale;
 
-
-public class Jogo1Play extends Fragment {
+public class AdivinheSomJogo extends Fragment {
     private MediaPlayer mediaPlayer;
     private TextToSpeech textToSpeech;
-    private FragmentJogo1PlayBinding binding;
+    private FragmentAdivinheSomJogoBinding binding; // Corrigido: nome do binding
     private List<Cenario> cenarios;
     private Cenario cenarioAtual;
     private int pontos = 0;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentJogo1PlayBinding.inflate(inflater, container, false);
+        binding = FragmentAdivinheSomJogoBinding.inflate(inflater, container, false); // Corrigido
         View view = binding.getRoot();
 
         inicializarCenarios();
@@ -78,7 +77,6 @@ public class Jogo1Play extends Fragment {
         cenarios.add(new Cenario("Golfinho fazendo barulho", new String[]{"Golfinho fazendo barulho", "Ondas do mar", "Baleia cantando", "Barco navegando"}, R.raw.som_golfinho, 1));
         cenarios.add(new Cenario("Grilo cantando", new String[]{"Grilo cantando", "Galo cantando", "Passarinhos piando", "Coruja fazendo barulho"}, R.raw.som_grilo, 1));
         cenarios.add(new Cenario("Música do carrossel", new String[]{"Montanha russa descendo", "Música do carrossel", "Pipoca estourando", "Crianças no pula-pula"}, R.raw.som_carrossel, 1));
-
     }
 
     private int sortearCenario(){
@@ -138,9 +136,9 @@ public class Jogo1Play extends Fragment {
     }
 
     private void checarResposta(int indiceEscolhido){
-       String respostaEscolhida= "";
+        String respostaEscolhida= "";
 
-       // obtem o texto do botao clicado com base no indice
+        // obtem o texto do botao clicado com base no indice
         switch (indiceEscolhido){
             case 0:
                 respostaEscolhida = binding.opcao1.getText().toString();
@@ -173,7 +171,6 @@ public class Jogo1Play extends Fragment {
         new android.os.Handler().postDelayed(() -> {
             textToSpeech.speak(binding.subminigame.getText(), TextToSpeech.QUEUE_FLUSH, null, null);
         }, 2300);
-
     }
 
     private void tocarFeedback(int resourceId){
@@ -192,5 +189,4 @@ public class Jogo1Play extends Fragment {
             textToSpeech.shutdown();
         }
     }
-
 }
