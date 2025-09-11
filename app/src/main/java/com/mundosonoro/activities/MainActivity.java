@@ -15,6 +15,7 @@ import com.mundosonoro.fragments.menu.HomeFragment;
 import com.mundosonoro.fragments.jogos.traduzir.TraduzirJogo; // Adicionado import
 import com.mundosonoro.R;
 import com.mundosonoro.databinding.ActivityMainBinding;
+import com.mundosonoro.fragments.menu.TutorialFragment;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -52,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
         TraduzirJogo traduzirJogo = new TraduzirJogo();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, traduzirJogo)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    //Metodo para navegar para o tutorial
+    public void navegarParaTutorial(){
+        TutorialFragment tutorialFragment = new TutorialFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, tutorialFragment)
                 .addToBackStack(null)
                 .commit();
     }

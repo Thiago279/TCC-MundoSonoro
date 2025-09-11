@@ -38,13 +38,14 @@ public class TraduzirJogo extends Fragment {
         View view = binding.getRoot();
 
         inicializarCenarios();
-        sortearCenario();
 
         // Inicializa TTS
         textToSpeech = new TextToSpeech(getContext(), status -> {
             if (status == TextToSpeech.SUCCESS) {
                 int result = textToSpeech.setLanguage(new Locale("pt", "BR"));
 
+                // Agora que o TTS está pronto, sorteia o primeiro cenário
+                sortearCenario();
             }
         });
 

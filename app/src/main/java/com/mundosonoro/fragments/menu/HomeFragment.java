@@ -37,8 +37,12 @@ public class HomeFragment extends Fragment {
         });
 
         // Ação do botão "CONFIGURAÇÕES"
-        binding.botaoConfig.setOnClickListener(v -> {
-            // TODO: Criar e abrir o fragmento de configurações se necessário
+        binding.botaoTutorial.setOnClickListener(v -> {
+            TutorialApresentacao tutorialApresentacao = new TutorialApresentacao();
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, tutorialApresentacao)
+                    .addToBackStack(null)
+                    .commit();
         });
     }
 

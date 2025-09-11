@@ -57,7 +57,7 @@
                 android:layout_marginTop="32dp"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-black"
-                android:text="TRADUZIR"
+                android:text="TOQUE E TRADUZA"
                 android:backgroundTint="@color/verde_claro"
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp"/>

@@ -5,90 +5,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verde_cinzento"
-    tools:context=".fragments.jogos.traduzir.TraduzirHome">
+    tools:context=".fragments.menu.TutorialApresentacao">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/titulo_traducao"
+            android:id="@+id/titulo_tutorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="48dp"
             android:layout_marginHorizontal="32dp"
-            android:text="Toque e Traduza!"
+            android:text="Tutorial"
             android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
             android:textSize="32sp"
+            android:contentDescription="Tutorial - Aprenda a jogar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/descricao"
+            android:id="@+id/descricao_tutorial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Vamos aprender como usar o aplicativo!"
+            android:fontFamily="sans-serif"
+            android:textAlignment="center"
+            android:textColor="@color/verde_claro"
+            android:textSize="22sp"
+            android:contentDescription="Vamos aprender como usar o aplicativo para jogar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo_tutorial" />
+
+        <TextView
+            android:id="@+id/instrucao_inicial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="40dp"
-            android:text="Traduza palavras do português para o inglês!"
+            android:text="Neste tutorial você vai aprender:\n\n• Como navegar pelos botões\n• Como selecionar uma opção\n• Como ouvir as instruções\n• Como jogar os games"
             android:fontFamily="sans-serif"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
-            android:textSize="20sp"
-            android:lineSpacingMultiplier="1.2"
+            android:textSize="18sp"
+            android:lineSpacingExtra="4dp"
+            android:contentDescription="Você vai aprender como navegar pelos botões, selecionar opções, ouvir instruções e jogar os games"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titulo_traducao" />
-
-        <TextView
-            android:id="@+id/instrucoes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="48dp"
-            android:layout_marginTop="40dp"
-            android:text="• Ouça a palavra em português\n• Escolha a tradução correta\n• Ganhe pontos a cada acerto!"
-            android:fontFamily="sans-serif"
-            android:textAlignment="center"
-            android:textColor="@color/verde_claro"
-            android:textSize="20sp"
-            android:lineSpacingMultiplier="1.4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descricao" />
+            app:layout_constraintTop_toBottomOf="@id/descricao_tutorial" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_ouvir_instrucoes"
+            android:id="@+id/btn_iniciar_tutorial"
+            android:backgroundTint="@color/verde_claro"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginHorizontal="32dp"
-            android:layout_marginTop="40dp"
-            android:backgroundTint="@color/verde_claro"
+            android:layout_marginTop="60dp"
             android:fontFamily="sans-serif-black"
-            android:text="OUVIR INSTRUÇÕES"
+            android:text="INICIAR TUTORIAL"
             android:textColor="@color/verde_cinzento"
             android:textSize="20sp"
+            android:contentDescription="Botão para iniciar o tutorial. Toque duas vezes para começar"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instrucoes" />
+            app:layout_constraintTop_toBottomOf="@+id/instrucao_inicial" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_comecar"
+            android:id="@+id/btn_voltar_menu"
+            android:backgroundTint="@color/verde_claro"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
-            android:backgroundTint="@color/verde_claro"
             android:fontFamily="sans-serif-black"
-            android:text="COMEÇAR JOGO"
+            android:text="VOLTAR AO MENU"
             android:textColor="@color/verde_cinzento"
-            android:textSize="22sp"
+            android:textSize="20sp"
+            android:contentDescription="Botão para voltar ao menu principal. Toque duas vezes para voltar"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_ouvir_instrucoes" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_iniciar_tutorial" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

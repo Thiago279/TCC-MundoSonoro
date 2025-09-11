@@ -5,143 +5,167 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verde_cinzento"
-    tools:context=".fragments.jogos.traduzir.TraduzirJogo">
+    tools:context=".fragments.menu.TutorialFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/titulo_traducao"
+            android:id="@+id/titulo_tutorial_interativo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginHorizontal="32dp"
-            android:text="Toque e Traduza!"
+            android:text="Aprendendo a Jogar!"
             android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
-            android:textSize="30sp"
+            android:textSize="28sp"
+            android:contentDescription="Tutorial interativo - Aprendendo a jogar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/rodada"
+            android:id="@+id/etapa_tutorial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="20dp"
-            android:text="Rodada: 1/10"
+            android:text="Etapa: 1/5"
             android:fontFamily="sans-serif"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
-            android:textSize="20sp"
+            android:textSize="18sp"
+            android:contentDescription="Etapa 1 de 5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titulo_traducao" />
-
+            app:layout_constraintTop_toBottomOf="@id/titulo_tutorial_interativo" />
 
         <TextView
-            android:id="@+id/pontos"
+            android:id="@+id/instrucao_atual"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="20dp"
-            android:text="Pontos: 0"
+            android:text="Deslize o dedo pela tela para navegar pelos botões"
             android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            android:lineSpacingExtra="4dp"
+            android:contentDescription="Instrução atual do tutorial"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rodada" />
+            app:layout_constraintTop_toBottomOf="@id/etapa_tutorial" />
 
-
-        <!-- botao repetir pergunta -->
+        <!-- botao repetir instrução -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_repetir_pergunta"
+            android:id="@+id/btn_repetir_instrucao"
             android:backgroundTint="@color/verde_claro"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
             android:fontFamily="sans-serif-black"
-            android:text="REPETIR PERGUNTA"
+            android:text="REPETIR INSTRUÇÃO"
             android:textColor="@color/verde_cinzento"
             android:textSize="20sp"
+            android:contentDescription="Repetir instrução atual. Toque duas vezes para ouvir novamente"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pontos" />
+            app:layout_constraintTop_toBottomOf="@+id/instrucao_atual" />
 
-        <!-- Botão 1 -->
+        <!-- Botões de prática -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/opcao1"
+            android:id="@+id/btn_pratica_1"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="32dp"
             android:layout_marginHorizontal="32dp"
             android:backgroundTint="@color/verde_claro"
-            android:text="Opção 1"
+            android:text="BOTÃO 1"
             app:cornerRadius="12dp"
             android:textSize="20sp"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/verde_cinzento"
+            android:contentDescription="Botão de prática 1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_repetir_pergunta" />
+            app:layout_constraintTop_toBottomOf="@id/btn_repetir_instrucao" />
 
-        <!-- Botão 2 -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/opcao2"
+            android:id="@+id/btn_pratica_2"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="32dp"
             android:layout_marginHorizontal="32dp"
             android:backgroundTint="@color/verde_claro"
-            android:text="Opção 2"
+            android:text="BOTÃO 2"
             app:cornerRadius="12dp"
             android:textSize="20sp"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/verde_cinzento"
+            android:contentDescription="Botão de prática 2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao1" />
+            app:layout_constraintTop_toBottomOf="@id/btn_pratica_1" />
 
-        <!-- Botão 3 -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/opcao3"
+            android:id="@+id/btn_pratica_3"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="32dp"
             android:layout_marginHorizontal="32dp"
             android:backgroundTint="@color/verde_claro"
             android:fontFamily="sans-serif-black"
-            android:text="Opção 3"
+            android:text="BOTÃO 3"
             android:textColor="@color/verde_cinzento"
             android:textSize="20sp"
+            android:contentDescription="Botão de prática 3"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao2" />
+            app:layout_constraintTop_toBottomOf="@id/btn_pratica_2" />
 
-        <!-- Botão 4 -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/opcao4"
+            android:id="@+id/btn_pratica_4"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginHorizontal="32dp"
+            android:backgroundTint="@color/verde_claro"
+            android:fontFamily="sans-serif-black"
+            android:text="BOTÃO 4"
+            android:textColor="@color/verde_cinzento"
+            android:textSize="20sp"
+            android:contentDescription="Botão de prática 3"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_pratica_3" />
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_finalizar_tutorial"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
             android:backgroundTint="@color/verde_claro"
             android:fontFamily="sans-serif-black"
-            android:text="Opção 4"
+            android:text="FINALIZAR"
             android:textColor="@color/verde_cinzento"
             android:textSize="20sp"
+            android:visibility="gone"
+            android:contentDescription="Finalizar tutorial e voltar ao menu"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao3" />
+            app:layout_constraintTop_toBottomOf="@id/btn_pratica_3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
