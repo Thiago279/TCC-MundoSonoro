@@ -11,6 +11,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 
+import com.mundosonoro.fragments.jogos.rimas.RimasJogo;
 import com.mundosonoro.fragments.menu.HomeFragment;
 import com.mundosonoro.fragments.jogos.traduzir.TraduzirJogo; // Adicionado import
 import com.mundosonoro.R;
@@ -53,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
         TraduzirJogo traduzirJogo = new TraduzirJogo();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, traduzirJogo)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    //Metodo para navegar para o jogo de rimas
+    public void navegarParaRimasJogo(){
+        RimasJogo rimasJogo = new RimasJogo();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, rimasJogo)
                 .addToBackStack(null)
                 .commit();
     }

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 import com.mundosonoro.databinding.FragmentSeletorJogosBinding;
 import com.mundosonoro.fragments.jogos.adivinhe_o_som.AdivinheSomHome;
+import com.mundosonoro.fragments.jogos.rimas.RimasHome;
 import com.mundosonoro.fragments.jogos.traduzir.TraduzirHome; // Adicionado import
 import com.mundosonoro.R;
 import com.mundosonoro.databinding.FragmentSeletorJogosBinding;
@@ -58,5 +59,20 @@ public class SeletorJogosFragment extends Fragment {
                 }
             });
         }
+        // Jogo 3 - Rima
+        // Certifique-se de ter um botão com ID btnJg3 no layout FragmentJogosBinding
+        if (binding.btnJg3 != null) { // Verificação de segurança
+            binding.btnJg3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    RimasHome rimasHome = new RimasHome();
+                    getParentFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, rimasHome)
+                            .addToBackStack(null)
+                            .commit();
+                }
+            });
+        }
+
     }
 }
