@@ -74,18 +74,6 @@
                 android:textColor="@color/verde_cinzento"
                 app:cornerRadius="12dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_jg4"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginTop="32dp"
-                android:textSize="20sp"
-                android:fontFamily="sans-serif-black"
-                android:text="JOGO 4"
-                android:backgroundTint="@color/verde_claro"
-                android:textColor="@color/verde_cinzento"
-                app:cornerRadius="12dp"/>
-
 
         </LinearLayout>
 

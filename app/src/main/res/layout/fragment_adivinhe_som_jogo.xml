@@ -9,9 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/titulo_jg1"
@@ -29,36 +27,35 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/subminigame"
+            android:id="@+id/rodada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
-            android:text="Sub-minigame"
+            android:layout_marginTop="20dp"
+            android:text="Rodada: 1/10"
             android:fontFamily="sans-serif"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
             android:textSize="20sp"
-            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titulo_jg1"
-            />
+            app:layout_constraintTop_toBottomOf="@id/titulo_jg1" />
+
 
         <TextView
             android:id="@+id/pontos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="20dp"
             android:text="Pontos: 0"
             android:fontFamily="sans-serif-black"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"
             android:textSize="24sp"
-            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subminigame"
-            />
+            app:layout_constraintTop_toBottomOf="@id/rodada" />
 
         <!-- botao ouvir som -->
         <com.google.android.material.button.MaterialButton
@@ -91,10 +88,8 @@
             android:fontFamily="sans-serif-black"
             android:textColor="@color/verde_cinzento"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_ouvir_som"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintTop_toBottomOf="@id/btn_ouvir_som" />
 
         <!-- Botão 2 -->
         <com.google.android.material.button.MaterialButton
@@ -110,10 +105,8 @@
             android:fontFamily="sans-serif-black"
             android:textColor="@color/verde_cinzento"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao1"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintTop_toBottomOf="@id/opcao1" />
 
         <!-- Botão 3 -->
         <com.google.android.material.button.MaterialButton
@@ -129,10 +122,8 @@
             android:textSize="20sp"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao2"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintTop_toBottomOf="@id/opcao2" />
 
         <!-- Botão 4 -->
         <com.google.android.material.button.MaterialButton
@@ -141,7 +132,6 @@
             android:layout_height="80dp"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
-
             android:backgroundTint="@color/verde_claro"
             android:fontFamily="sans-serif-black"
             android:text="Opção 4"
@@ -149,10 +139,8 @@
             android:textSize="20sp"
             app:cornerRadius="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/opcao3"
-            app:layout_constraintWidth_percent="0.45" />
+            app:layout_constraintTop_toBottomOf="@id/opcao3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
