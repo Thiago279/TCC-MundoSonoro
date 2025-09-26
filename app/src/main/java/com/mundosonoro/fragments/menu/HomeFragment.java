@@ -3,6 +3,7 @@ package com.mundosonoro.fragments.menu;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ViewCompat.setAccessibilityPaneTitle(view, "Tela inicial do jogo Mundo Sonoro");
 
         // Ação do botão "JOGAR"
         binding.botaoJogar.setOnClickListener(v -> {

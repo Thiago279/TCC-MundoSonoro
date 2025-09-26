@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="20dp"
-            android:text="Rodada: 1/10"
+            android:text="Rodada: 1 de 10"
             android:fontFamily="sans-serif"
             android:textAlignment="center"
             android:textColor="@color/verde_claro"

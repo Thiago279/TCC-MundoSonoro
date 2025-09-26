@@ -19,12 +19,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import android.speech.tts.TextToSpeech;
-import java.util.Locale;
+
 
 public class AdivinheSomJogo extends Fragment {
     private MediaPlayer mediaPlayer;
-    private TextToSpeech textToSpeech;
     private FragmentAdivinheSomJogoBinding binding;
     private List<Cenario> cenarios;
     private Cenario cenarioAtual;
@@ -39,18 +37,8 @@ public class AdivinheSomJogo extends Fragment {
         View view = binding.getRoot();
 
         inicializarCenarios();
+        sortearCenario();
 
-        // Inicializa TextToSpeech
-        textToSpeech = new TextToSpeech(getContext(), status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                int result = textToSpeech.setLanguage(new Locale("pt", "BR"));
-
-                // Agora que o TTS está pronto, sorteia o primeiro cenário
-                if (result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED) {
-                    sortearCenario();
-                }
-            }
-        });
 
         // Disparar som
         binding.btnOuvirSom.setOnClickListener(v -> tocarSom(cenarioAtual.somResId));
@@ -101,11 +89,7 @@ public class AdivinheSomJogo extends Fragment {
 
 
         // Fala o número da rodada antes da pergunta
-        if (textToSpeech != null) {
-            String anuncioRodada = "Rodada " + rodadaAtual;
-            textToSpeech.speak(anuncioRodada, TextToSpeech.QUEUE_FLUSH, null, null);
-
-        }
+        binding.getRoot().announceForAccessibility("Rodada " + rodadaAtual);
     }
 
     private void tocarSom(int somResource) {
@@ -167,14 +151,14 @@ public class AdivinheSomJogo extends Fragment {
             tocarFeedback(R.raw.correct_sfx);
 
             new Handler().postDelayed(() -> {
-                textToSpeech.speak("Correto! Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
+                binding.getRoot().announceForAccessibility("Correto! Mais 10 pontos!");
             }, 700);
 
         } else {
             tocarFeedback(R.raw.wrong_sfx);
 
             new Handler().postDelayed(() -> {
-                textToSpeech.speak("Incorreto", TextToSpeech.QUEUE_FLUSH, null, null);
+                binding.getRoot().announceForAccessibility("Incorreto");
             }, 700);
         }
 
@@ -203,7 +187,7 @@ public class AdivinheSomJogo extends Fragment {
             } else {
                 resultado += " Continue praticando!";
             }
-            textToSpeech.speak(resultado, TextToSpeech.QUEUE_FLUSH, null, null);
+            binding.getRoot().announceForAccessibility(resultado);
 
             // Volta para a tela inicial após 8 segundos
             new Handler().postDelayed(() -> {
@@ -230,9 +214,5 @@ public class AdivinheSomJogo extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         pararSomAtual();
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
-        }
     }
 }

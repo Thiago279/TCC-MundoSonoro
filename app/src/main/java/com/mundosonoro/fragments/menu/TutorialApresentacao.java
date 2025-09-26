@@ -2,6 +2,10 @@ package com.mundosonoro.fragments.menu;
 
 import android.os.Bundle;
 import android.media.MediaPlayer;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -59,6 +63,13 @@ public class TutorialApresentacao extends Fragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ViewCompat.setAccessibilityPaneTitle(view, "Tela inicial do Tutorial");
     }
 
     private void apresentarTutorial() {

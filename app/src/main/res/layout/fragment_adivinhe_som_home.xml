@@ -44,12 +44,12 @@
             app:layout_constraintTop_toBottomOf="@id/titulo_jg1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_tutorial"
+            android:id="@+id/btn_repetir"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginTop="40dp"
             android:layout_marginHorizontal="32dp"
-            android:text="TUTORIAL"
+            android:text="OUVIR INSTRUÇÕES"
             android:textColor="@color/verde_cinzento"
             android:backgroundTint="@color/verde_claro"
             android:drawableTint="@color/verde_claro"
@@ -78,7 +78,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_tutorial" />
+            app:layout_constraintTop_toBottomOf="@id/btn_repetir" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

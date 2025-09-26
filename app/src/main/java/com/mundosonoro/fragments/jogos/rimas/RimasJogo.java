@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +18,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import android.speech.tts.TextToSpeech;
-import java.util.Locale;
+
 
 public class RimasJogo extends Fragment {
     private MediaPlayer mediaPlayer;
-    private TextToSpeech textToSpeech;
     private FragmentRimasJogoBinding binding;
     private List<ParRimas> paresRimas;
     private ParRimas parAtual;
@@ -78,13 +77,7 @@ public class RimasJogo extends Fragment {
 
         inicializarParesRimas();
 
-        // Inicializa TTS
-        textToSpeech = new TextToSpeech(getContext(), status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                textToSpeech.setLanguage(new Locale("pt", "BR"));
-                sortearPar();
-            }
-        });
+        sortearPar();
 
         // Botão para repetir a instrução
         binding.btnRepetirPergunta.setOnClickListener(v -> falarInstrucao());
@@ -184,21 +177,15 @@ public class RimasJogo extends Fragment {
         resetarSelecoes();
         processandoResposta = false;
 
-        //Fala o número da rodada antes da instrução
-        if (textToSpeech != null) {
-            String anuncioRodada = "Rodada " + rodadaAtual;
-            textToSpeech.speak(anuncioRodada, TextToSpeech.QUEUE_FLUSH, null, null);
+        binding.getRoot().announceForAccessibility("Rodada " + rodadaAtual);
 
-            //Fala a instrução após um delay
-            new Handler().postDelayed(this::falarInstrucao, 1500);
-        }
+        //Fala a instrução após um delay
+        new Handler().postDelayed(this::falarInstrucao, 1500);
+
     }
 
     private void falarInstrucao() {
-        if (textToSpeech != null) {
-            String instrucao = "Encontre o par de palavras que rimam entre as quatro opções.";
-            textToSpeech.speak(instrucao, TextToSpeech.QUEUE_FLUSH, null, null);
-        }
+        binding.getRoot().announceForAccessibility("Encontre o par de palavras que rimam entre as quatro opções.");
     }
 
     private void selecionarPalavra(int indiceEscolhido) {
@@ -211,9 +198,7 @@ public class RimasJogo extends Fragment {
         String palavraEscolhida = opcoesEmbaralhadas.get(indiceEscolhido);
 
         // Fala a palavra selecionada
-        if (textToSpeech != null) {
-            textToSpeech.speak(palavraEscolhida.toLowerCase(), TextToSpeech.QUEUE_FLUSH, null, null);
-        }
+        binding.getRoot().announceForAccessibility(palavraEscolhida.toLowerCase());
 
         // Lógica de seleção
         if (primeiraPalavra.isEmpty()) {
@@ -223,20 +208,15 @@ public class RimasJogo extends Fragment {
             destacarBotao(indiceEscolhido, true);
 
             new Handler().postDelayed(() -> {
-                if (textToSpeech != null) {
-                    textToSpeech.speak("Primeira palavra selecionada: " + palavraEscolhida.toLowerCase() +
-                            ". Agora escolha a segunda palavra!", TextToSpeech.QUEUE_FLUSH, null, null);
-                }
+                binding.getRoot().announceForAccessibility("Primeira palavra selecionada: " + palavraEscolhida.toLowerCase() +
+                        ". Agora escolha a segunda palavra!");
             }, 800);
 
         } else if (primeiraSelecao == indiceEscolhido) {
             // Clicou na mesma palavra já selecionada - deseleciona
             resetarSelecoes();
             new Handler().postDelayed(() -> {
-                if (textToSpeech != null) {
-                    textToSpeech.speak("Palavra desmarcada. Escolha duas palavras diferentes.",
-                            TextToSpeech.QUEUE_FLUSH, null, null);
-                }
+                binding.getRoot().announceForAccessibility("Palavra desmarcada. Escolha duas palavras diferentes.");
             }, 500);
 
         } else if (segundaPalavra.isEmpty()) {
@@ -247,10 +227,7 @@ public class RimasJogo extends Fragment {
             processandoResposta = true;
 
             new Handler().postDelayed(() -> {
-                if (textToSpeech != null) {
-                    textToSpeech.speak("Segunda palavra selecionada: " + palavraEscolhida.toLowerCase(),
-                            TextToSpeech.QUEUE_FLUSH, null, null);
-                }
+                binding.getRoot().announceForAccessibility("Segunda palavra selecionada: " + palavraEscolhida.toLowerCase());
                 // Checa a resposta após o TTS
                 new Handler().postDelayed(this::checarResposta, 3000);
             }, 800);
@@ -263,10 +240,8 @@ public class RimasJogo extends Fragment {
             destacarBotao(indiceEscolhido, true);
 
             new Handler().postDelayed(() -> {
-                if (textToSpeech != null) {
-                    textToSpeech.speak("Nova seleção iniciada. Primeira palavra: " +
-                            palavraEscolhida.toLowerCase(), TextToSpeech.QUEUE_FLUSH, null, null);
-                }
+                binding.getRoot().announceForAccessibility("Nova seleção iniciada. Primeira palavra: " +
+                        palavraEscolhida.toLowerCase());
             }, 800);
         }
     }
@@ -328,21 +303,16 @@ public class RimasJogo extends Fragment {
             tocarFeedback(R.raw.correct_sfx);
 
             new Handler().postDelayed(() -> {
-                if (textToSpeech != null) {
-                    textToSpeech.speak("Correto! " + primeiraPalavra.toLowerCase() + " rima com " +
-                            segundaPalavra.toLowerCase() + "! Mais 10 pontos!", TextToSpeech.QUEUE_FLUSH, null, null);
-                }
+                binding.getRoot().announceForAccessibility("Correto! " + primeiraPalavra.toLowerCase() + " rima com " +
+                        segundaPalavra.toLowerCase() + "! Mais 10 pontos!");
             }, 700);
 
         } else {
             tocarFeedback(R.raw.wrong_sfx);
 
             new Handler().postDelayed(() -> {
-                if (textToSpeech != null) {
-                    textToSpeech.speak("Incorreto. " + ". O par correto era " +
-                                    parAtual.palavra1.toLowerCase() + " e " + parAtual.palavra2.toLowerCase(),
-                            TextToSpeech.QUEUE_FLUSH, null, null);
-                }
+                binding.getRoot().announceForAccessibility("Incorreto. " + ". O par correto era " +
+                        parAtual.palavra1.toLowerCase() + " e " + parAtual.palavra2.toLowerCase());
             }, 700);
         }
 
@@ -367,7 +337,7 @@ public class RimasJogo extends Fragment {
             } else {
                 resultado += " Continue praticando! As rimas são divertidas!";
             }
-            textToSpeech.speak(resultado, TextToSpeech.QUEUE_FLUSH, null, null);
+            binding.getRoot().announceForAccessibility(resultado);
 
             new Handler().postDelayed(() -> {
                 ((MainActivity) getActivity()).voltarParaMenu();
@@ -398,10 +368,6 @@ public class RimasJogo extends Fragment {
         super.onDestroy();
         if (mediaPlayer != null) {
             mediaPlayer.release();
-        }
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
         }
     }
 }
