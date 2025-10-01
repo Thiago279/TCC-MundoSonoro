@@ -67,7 +67,7 @@
             android:layout_marginHorizontal="32dp"
             android:layout_marginTop="32dp"
             android:fontFamily="sans-serif-black"
-            android:text="REPETIR PERGUNTA"
+            android:text="OUVIR PERGUNTA"
             android:textColor="@color/verde_cinzento"
             android:textSize="20sp"
             app:cornerRadius="12dp"
