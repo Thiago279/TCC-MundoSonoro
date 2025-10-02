@@ -46,6 +46,8 @@ public class TraduzirJogo extends Fragment {
         binding.opcao3.setOnClickListener(v -> checarResposta(2));
         binding.opcao4.setOnClickListener(v -> checarResposta(3));
 
+        sortearCenario();
+
         return view;
     }
 
@@ -189,7 +191,7 @@ public class TraduzirJogo extends Fragment {
         binding.rodada.setText("Rodada: " + rodadaAtual + "/" + MAX_RODADAS);
         //binding.categoria.setText("Categoria: " + cenarioAtual.categoria);
 
-        binding.getRoot().announceForAccessibility("Rodata" + rodadaAtual);
+        binding.getRoot().announceForAccessibility("Rodada" + rodadaAtual);
 
         //Fala a pergunta após um delay para dar tempo do anúncio da rodada terminar
         new android.os.Handler().postDelayed(() -> {

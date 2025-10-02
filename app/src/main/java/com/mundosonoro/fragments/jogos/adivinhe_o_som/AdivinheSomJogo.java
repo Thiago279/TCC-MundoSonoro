@@ -25,6 +25,7 @@ public class AdivinheSomJogo extends Fragment {
     private MediaPlayer mediaPlayer;
     private FragmentAdivinheSomJogoBinding binding;
     private List<Cenario> cenarios;
+    private List<Cenario> cenariosDisponiveis; // cenarios nao usados
     private Cenario cenarioAtual;
     private int pontos = 0;
     private int rodadaAtual = 1;
@@ -37,6 +38,10 @@ public class AdivinheSomJogo extends Fragment {
         View view = binding.getRoot();
 
         inicializarCenarios();
+
+        // Inicializa a lista de cenários disponíveis com uma CÓPIA da lista original
+        cenariosDisponiveis = new ArrayList<>(cenarios);
+
         sortearCenario();
 
 
@@ -66,12 +71,22 @@ public class AdivinheSomJogo extends Fragment {
         cenarios.add(new Cenario("Golfinho fazendo barulho", new String[]{"Golfinho fazendo barulho", "Ondas do mar", "Baleia cantando", "Barco navegando"}, R.raw.som_golfinho, 1));
         cenarios.add(new Cenario("Grilo cantando", new String[]{"Grilo cantando", "Galo cantando", "Passarinhos piando", "Coruja fazendo barulho"}, R.raw.som_grilo, 1));
         cenarios.add(new Cenario("Música do carrossel", new String[]{"Montanha russa descendo", "Música do carrossel", "Pipoca estourando", "Crianças no pula-pula"}, R.raw.som_carrossel, 1));
+        cenarios.add(new Cenario("Gato miando", new String[]{"Cachorro latindo", "Gato miando", "Rato faznedo barulho", "Passarinhos piando"}, R.raw.cat_sfx, 1));
     }
 
     private void sortearCenario() {
+        // Verifica se ainda há cenários disponíveis
+        if (cenariosDisponiveis.isEmpty()) {
+            // Se acabaram os cenários, recarrega a lista
+            cenariosDisponiveis = new ArrayList<>(cenarios);
+        }
+
         Random random = new Random();
-        int index = random.nextInt(cenarios.size());
-        cenarioAtual = cenarios.get(index);
+        int index = random.nextInt(cenariosDisponiveis.size());
+        cenarioAtual = cenariosDisponiveis.get(index);
+
+        // REMOVE o cenário da lista de disponíveis
+        cenariosDisponiveis.remove(index);
 
         // Cria uma copia da lista de opcoes e embaralha
         List<String> opcoesEmbaralhadas = new ArrayList<>();
