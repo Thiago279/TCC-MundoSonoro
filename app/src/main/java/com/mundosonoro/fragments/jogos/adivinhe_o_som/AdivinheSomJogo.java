@@ -71,7 +71,7 @@ public class AdivinheSomJogo extends Fragment {
         cenarios.add(new Cenario("Golfinho fazendo barulho", new String[]{"Golfinho fazendo barulho", "Ondas do mar", "Baleia cantando", "Barco navegando"}, R.raw.som_golfinho, 1));
         cenarios.add(new Cenario("Grilo cantando", new String[]{"Grilo cantando", "Galo cantando", "Passarinhos piando", "Coruja fazendo barulho"}, R.raw.som_grilo, 1));
         cenarios.add(new Cenario("Música do carrossel", new String[]{"Montanha russa descendo", "Música do carrossel", "Pipoca estourando", "Crianças no pula-pula"}, R.raw.som_carrossel, 1));
-        cenarios.add(new Cenario("Gato miando", new String[]{"Cachorro latindo", "Gato miando", "Rato faznedo barulho", "Passarinhos piando"}, R.raw.cat_sfx, 1));
+        cenarios.add(new Cenario("Gato miando", new String[]{"Cachorro latindo", "Gato miando", "Rato fazendo barulho", "Passarinhos piando"}, R.raw.cat_sfx, 1));
     }
 
     private void sortearCenario() {
