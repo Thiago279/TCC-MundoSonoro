@@ -7,9 +7,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.speech.tts.TextToSpeech;
 import android.view.accessibility.AccessibilityEvent;
-import java.util.Locale;
 
 import com.mundosonoro.R;
 import com.mundosonoro.activities.MainActivity;
@@ -17,7 +15,6 @@ import com.mundosonoro.databinding.FragmentTutorialBinding;
 
 public class TutorialFragment extends Fragment {
     private MediaPlayer mediaPlayer;
-    private TextToSpeech textToSpeech;
     private FragmentTutorialBinding binding;
     private int etapaAtual = 1;
     private final int MAX_ETAPAS = 5;
@@ -37,16 +34,11 @@ public class TutorialFragment extends Fragment {
         binding = FragmentTutorialBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        // Inicializa TTS
-        textToSpeech = new TextToSpeech(getContext(), status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                textToSpeech.setLanguage(new Locale("pt", "BR"));
-                iniciarEtapa1();
-            }
-        });
-
         configurarBotoes();
         configurarAcessibilidade();
+
+        // Inicia a primeira etapa após a view estar pronta
+        new Handler().postDelayed(() -> iniciarEtapa1(), 500);
 
         return view;
     }
@@ -85,7 +77,7 @@ public class TutorialFragment extends Fragment {
                             navegacaoCompleta = true;
                             tocarFeedback(R.raw.correct_sfx);
                             new Handler().postDelayed(() -> {
-                                falarTexto("Muito bem! Você aprendeu a navegar. Vamos para a próxima etapa.");
+                                anunciar("Muito bem! Você aprendeu a navegar. Vamos para a próxima etapa.");
                                 new Handler().postDelayed(() -> iniciarEtapa2(), 3000);
                             }, 700);
                         }
@@ -111,7 +103,7 @@ public class TutorialFragment extends Fragment {
                 "Quando o TalkBack falar o nome de um botão, significa que está selecionado. " +
                 "Navegue por pelo menos 3 botões diferentes.";
 
-        falarTexto(instrucao);
+        anunciar(instrucao);
     }
 
     private void iniciarEtapa2() {
@@ -122,7 +114,7 @@ public class TutorialFragment extends Fragment {
                 "Agora você vai aprender a selecionar um botão. " +
                 "Navegue até o botão 1 e toque duas vezes nele para selecioná-lo.";
 
-        falarTexto(instrucao);
+        anunciar(instrucao);
     }
 
     private void iniciarEtapa3() {
@@ -133,7 +125,7 @@ public class TutorialFragment extends Fragment {
                 "Se você esquecer uma instrução, pode repetí-la. " +
                 "Navegue até o botão 'Repetir Instrução' e toque duas vezes.";
 
-        falarTexto(instrucao);
+        anunciar(instrucao);
     }
 
     private void iniciarEtapa4() {
@@ -144,7 +136,7 @@ public class TutorialFragment extends Fragment {
                 "Agora pratique! Navegue e selecione qualquer botão de prática. " +
                 "Lembre-se: um toque seleciona, dois toques confirmam.";
 
-        falarTexto(instrucao);
+        anunciar(instrucao);
     }
 
     private void iniciarEtapa5() {
@@ -157,7 +149,7 @@ public class TutorialFragment extends Fragment {
                 "Agora você pode jogar todos os nossos games. " +
                 "Para finalizar o tutorial, toque duas vezes no botão Finalizar.";
 
-        falarTexto(instrucao);
+        anunciar(instrucao);
     }
 
     private void processarCliqueBotao(int numeroBotao) {
@@ -166,19 +158,19 @@ public class TutorialFragment extends Fragment {
         String feedback = "Você selecionou o botão " + numeroBotao + "!";
 
         new Handler().postDelayed(() -> {
-            falarTexto(feedback);
+            anunciar(feedback);
 
             // Verifica progresso da etapa atual
             if (etapaAtual == 2 && numeroBotao == 1 && !selecaoCompleta) {
                 selecaoCompleta = true;
                 new Handler().postDelayed(() -> {
-                    falarTexto("Perfeito! Você aprendeu a selecionar. Vamos continuar.");
+                    anunciar("Perfeito! Você aprendeu a selecionar. Vamos continuar.");
                     new Handler().postDelayed(() -> iniciarEtapa3(), 3000);
                 }, 2000);
             } else if (etapaAtual == 4 && !praticaCompleta) {
                 praticaCompleta = true;
                 new Handler().postDelayed(() -> {
-                    falarTexto("Excelente! Você está dominando a navegação.");
+                    anunciar("Excelente! Você está dominando a navegação.");
                     new Handler().postDelayed(() -> iniciarEtapa5(), 3000);
                 }, 2000);
             }
@@ -190,7 +182,7 @@ public class TutorialFragment extends Fragment {
         if (etapaAtual == 3 && !repeticaoCompleta) {
             repeticaoCompleta = true;
             new Handler().postDelayed(() -> {
-                falarTexto("Ótimo! Você aprendeu a repetir instruções. Isso é muito útil!");
+                anunciar("Ótimo! Você aprendeu a repetir instruções. Isso é muito útil!");
                 new Handler().postDelayed(() -> iniciarEtapa4(), 3000);
             }, 1500);
         } else {
@@ -219,7 +211,7 @@ public class TutorialFragment extends Fragment {
                 break;
         }
 
-        falarTexto(instrucao);
+        anunciar(instrucao);
     }
 
     private void atualizarInterface() {
@@ -249,18 +241,18 @@ public class TutorialFragment extends Fragment {
     }
 
     private void finalizarTutorial() {
-        String finalizacao = "Parabéns! Você completou o tutorial com sucesso!-";
+        String finalizacao = "Parabéns! Você completou o tutorial com sucesso!";
 
-        falarTexto(finalizacao);
+        anunciar(finalizacao);
 
         new Handler().postDelayed(() -> {
             ((MainActivity) getActivity()).voltarParaMenu();
         }, 6000);
     }
 
-    private void falarTexto(String texto) {
-        if (textToSpeech != null) {
-            textToSpeech.speak(texto, TextToSpeech.QUEUE_FLUSH, null, null);
+    private void anunciar(String texto) {
+        if (binding != null && binding.getRoot() != null) {
+            binding.getRoot().announceForAccessibility(texto);
         }
     }
 
@@ -286,10 +278,6 @@ public class TutorialFragment extends Fragment {
         super.onDestroy();
         if (mediaPlayer != null) {
             mediaPlayer.release();
-        }
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
         }
     }
 }

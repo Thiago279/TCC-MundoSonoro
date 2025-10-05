@@ -11,8 +11,6 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.speech.tts.TextToSpeech;
-import java.util.Locale;
 
 import com.mundosonoro.R;
 import com.mundosonoro.activities.MainActivity;
@@ -20,7 +18,6 @@ import com.mundosonoro.databinding.FragmentTutorialApresentacaoBinding;
 
 public class TutorialApresentacao extends Fragment {
     private MediaPlayer mediaPlayer;
-    private TextToSpeech textToSpeech;
     private FragmentTutorialApresentacaoBinding binding;
 
     @Override
@@ -29,36 +26,14 @@ public class TutorialApresentacao extends Fragment {
         binding = FragmentTutorialApresentacaoBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
 
-        // Inicializa TTS
-        textToSpeech = new TextToSpeech(getContext(), status -> {
-            if (status == TextToSpeech.SUCCESS) {
-                textToSpeech.setLanguage(new Locale("pt", "BR"));
-
-                // Apresenta o tutorial quando o TTS estiver pronto
-                new Handler().postDelayed(() -> {
-                    apresentarTutorial();
-                }, 500);
-            }
-        });
-
         // Configurar clique dos botões
         binding.btnIniciarTutorial.setOnClickListener(v -> {
-            // Para o TTS atual
-            if (textToSpeech != null && textToSpeech.isSpeaking()) {
-                textToSpeech.stop();
-            }
-
-            // Navega para o jogo principal
+            // Navega para o tutorial principal
             ((MainActivity) getActivity()).navegarParaTutorial();
         });
 
         binding.btnVoltarMenu.setOnClickListener(v -> {
-            // Para o TTS atual
-            if (textToSpeech != null && textToSpeech.isSpeaking()) {
-                textToSpeech.stop();
-            }
-
-            // Navega para o jogo principal
+            // Navega de volta para o menu
             ((MainActivity) getActivity()).voltarParaMenu();
         });
 
@@ -70,6 +45,11 @@ public class TutorialApresentacao extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ViewCompat.setAccessibilityPaneTitle(view, "Tela inicial do Tutorial");
+
+        // Apresenta o tutorial após a view estar pronta
+        new Handler().postDelayed(() -> {
+            apresentarTutorial();
+        }, 500);
     }
 
     private void apresentarTutorial() {
@@ -79,17 +59,13 @@ public class TutorialApresentacao extends Fragment {
                 "Para selecionar algo, toque duas vezes. " +
                 "Vamos começar?";
 
-        falarTexto(apresentacao);
+        anunciar(apresentacao);
     }
 
-    private void falarTexto(String texto) {
-        if (textToSpeech != null) {
-            textToSpeech.speak(texto, TextToSpeech.QUEUE_FLUSH, null, null);
+    private void anunciar(String texto) {
+        if (binding != null && binding.getRoot() != null) {
+            binding.getRoot().announceForAccessibility(texto);
         }
-    }
-
-    private void irParaTutorialInterativo() {
-        ((MainActivity) getActivity()).navegarParaTutorial();
     }
 
     private void tocarFeedback(int resourceId) {
@@ -114,10 +90,6 @@ public class TutorialApresentacao extends Fragment {
         super.onDestroy();
         if (mediaPlayer != null) {
             mediaPlayer.release();
-        }
-        if (textToSpeech != null) {
-            textToSpeech.stop();
-            textToSpeech.shutdown();
         }
     }
 }
