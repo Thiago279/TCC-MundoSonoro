@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.mundosonoro.R;
 import com.mundosonoro.activities.MainActivity;
 import com.mundosonoro.databinding.FragmentRimasJogoBinding;
+import com.mundosonoro.utils.PontuacaoManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -326,6 +327,10 @@ public class RimasJogo extends Fragment {
     }
 
     private void finalizarJogo() {
+        // Salva o high score
+        PontuacaoManager pontuacaoManager = new PontuacaoManager(getContext());
+        pontuacaoManager.salvarHighScoreRimas(pontos);
+
         new Handler().postDelayed(() -> {
             String resultado = "Jogo finalizado! Você fez " + pontos + " pontos!";
             if (pontos >= 80) {

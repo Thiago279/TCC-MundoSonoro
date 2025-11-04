@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/verde_cinzento"
+    tools:context=".fragments.menu.PontuacaoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/titulo_pontuacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:layout_marginHorizontal="32dp"
+            android:text="Recorde de pontuação dos jogos"
+            android:fontFamily="sans-serif-black"
+            android:textAlignment="center"
+            android:textColor="@color/verde_claro"
+            android:textSize="32sp"
+            android:contentDescription="Recorde de pontuação dos jogos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Card Adivinhe o Som -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_adivinhesom"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            app:cardBackgroundColor="@color/verde_claro"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titulo_pontuacao">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adivinhe o Som"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/verde_cinzento"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/pontuacao_adivinhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recorde: 0 pontos"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/verde_cinzento"
+                    android:textSize="18sp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="Recorde do jogo Adivinhe o Som" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Traduzir -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_traduzir"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            app:cardBackgroundColor="@color/verde_claro"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_adivinhesom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toque e Traduza"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/verde_cinzento"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/pontuacao_traduzir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recorde: 0 pontos"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/verde_cinzento"
+                    android:textSize="18sp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="Recorde do jogo Traduzir" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Card Rimas -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_rimas"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            app:cardBackgroundColor="@color/verde_claro"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_traduzir">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Encontre as Rimas"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/verde_cinzento"
+                    android:textSize="22sp" />
+
+                <TextView
+                    android:id="@+id/pontuacao_rimas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recorde: 0 pontos"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/verde_cinzento"
+                    android:textSize="18sp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="Recorde do jogo Rimas" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Botão Voltar -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_voltar_menu"
+            android:backgroundTint="@color/verde_claro"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-black"
+            android:text="VOLTAR AO MENU"
+            android:textColor="@color/verde_cinzento"
+            android:textSize="20sp"
+            android:contentDescription="Botão para voltar ao menu principal. Toque duas vezes para voltar"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_rimas" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

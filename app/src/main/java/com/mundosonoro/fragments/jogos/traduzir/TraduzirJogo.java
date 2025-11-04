@@ -13,6 +13,7 @@ import com.mundosonoro.R;
 import com.mundosonoro.activities.MainActivity;
 import com.mundosonoro.databinding.FragmentTraduzirJogoBinding;
 import com.mundosonoro.models.CenarioIdioma;
+import com.mundosonoro.utils.PontuacaoManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -256,6 +257,10 @@ public class TraduzirJogo extends Fragment {
     }
 
     private void finalizarJogo() {
+        // Salva o high score
+        PontuacaoManager pontuacaoManager = new PontuacaoManager(getContext());
+        pontuacaoManager.salvarHighScoreTraduzir(pontos);
+
         new android.os.Handler().postDelayed(() -> {
             String resultado = "Jogo finalizado! Você fez " + pontos + " pontos!";
             if (pontos >= 80) {

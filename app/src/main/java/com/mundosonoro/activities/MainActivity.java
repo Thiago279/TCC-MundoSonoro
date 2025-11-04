@@ -16,6 +16,7 @@ import com.mundosonoro.fragments.menu.HomeFragment;
 import com.mundosonoro.fragments.jogos.traduzir.TraduzirJogo; // Adicionado import
 import com.mundosonoro.R;
 import com.mundosonoro.databinding.ActivityMainBinding;
+import com.mundosonoro.fragments.menu.PontuacaoFragment;
 import com.mundosonoro.fragments.menu.TutorialFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,6 +73,14 @@ public class MainActivity extends AppCompatActivity {
         TutorialFragment tutorialFragment = new TutorialFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, tutorialFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    public void navegarParaPontuacoes() {
+        PontuacaoFragment pontuacaoFragment = new PontuacaoFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, pontuacaoFragment)
                 .addToBackStack(null)
                 .commit();
     }

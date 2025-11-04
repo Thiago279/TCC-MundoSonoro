@@ -69,7 +69,7 @@
             android:layout_marginHorizontal="32dp"
             android:drawableTint="@color/verde_claro"
             android:backgroundTint="@color/verde_claro"
-            android:text="JOGAR"
+            android:text="COMEÇAR JOGO"
             android:fontFamily="sans-serif-black"
             android:textColor="@color/verde_cinzento"
             android:textColorLink="@color/verde_claro"

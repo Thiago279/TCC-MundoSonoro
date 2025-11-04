@@ -13,6 +13,7 @@ import com.mundosonoro.models.Cenario;
 import com.mundosonoro.R;
 import com.mundosonoro.activities.MainActivity;
 import com.mundosonoro.databinding.FragmentAdivinheSomJogoBinding;
+import com.mundosonoro.utils.PontuacaoManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,6 +31,8 @@ public class AdivinheSomJogo extends Fragment {
     private int pontos = 0;
     private int rodadaAtual = 1;
     private final int MAX_RODADAS = 10;
+
+    private PontuacaoManager pontuacaoManager;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -191,6 +194,10 @@ public class AdivinheSomJogo extends Fragment {
     }
 
     private void finalizarJogo() {
+        // Salva o high score
+        PontuacaoManager pontuacaoManager = new PontuacaoManager(getContext());
+        pontuacaoManager.salvarHighScoreAdivinheSom(pontos);
+
         new Handler().postDelayed(() -> {
             String resultado = "Jogo finalizado! Você fez " + pontos + " pontos!";
             if (pontos >= 80) {

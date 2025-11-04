@@ -46,6 +46,15 @@ public class HomeFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+
+        // Ação do botão "RECORDE"
+        binding.botaoRecord.setOnClickListener(v -> {
+            PontuacaoFragment pontuacaoFragment = new PontuacaoFragment();
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, pontuacaoFragment)
+                    .addToBackStack(null)
+                    .commit();
+        });
     }
 
     @Override
